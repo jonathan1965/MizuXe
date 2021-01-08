@@ -12,9 +12,9 @@
     <title>Bootstrap Theme</title>
 </head>
 
-<body>
+<body id="home" data-spy="scroll" data-target="#main-nav">
 
-    <nav class="navbar navbar-expand-md navbar-light fixed-top py-4">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top py-4" id="main-nav">
         <div class="container">
             <a href="#home" class="navbar-brand">
                 <img src="img/mlogo.png" alt="" width="50" height="50" alt="">
@@ -258,7 +258,7 @@
                             <img src="img/person2.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
                             <h3>Garce Smith </h3>
                             <h5 class="text-muted">
-                                 Co-Writter
+                                Co-Writter
                             </h5>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae exercitationem deleniti
@@ -345,6 +345,68 @@
         </div>
     </section>
 
+    <!-- Contact -->
+
+    <section id="contact" class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <h3>
+                        Get in Touch
+                    </h3>
+                    <p class="lead">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, incidunt?
+                    </p>
+                    <form action="">
+                        <div class="input-group input-group-lg mb-3">
+                            <div class="input-group-prepend  input-group-lg">
+                                <span class="input-group-text ">
+                                    @
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Name">
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+                            <div class="input-group-prepend  input-group-lg">
+                                <span class="input-group-text ">
+                                   @
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+                            <div class="input-group-prepend">
+                              
+                            </div>
+                            <textarea class="form-control" placeholder="Message" rows="5"></textarea>
+                          </div>
+              
+                          <input type="submit" value="Submit" class="btn btn-primary btn-block btn-lg">
+                        </form>
+                      </div>
+              
+                      <div class="col-lg-3 align-self-center">
+                        <img src="img/mlogo.png" alt="" class="img-fluid">
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+
+                <!-- Footer -->
+    
+                <footer id="main-footer" class="py-5 bg-primary text-white">
+                    <div class="container">
+                        <div class="row text-center">
+                            <div class="col-md-6 ml-auto">
+                                <p class="lead">
+                                    copyright &copy; <span id="year"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
 
 
 
@@ -363,6 +425,28 @@
     <script>
         // Get the current year for the copyright
         $('#year').text(new Date().getFullYear());
+
+        //init Scrollspy
+
+       // Init Scrollspy
+    $('body').scrollspy({ target: '#main-nav' });
+
+// Smooth Scrolling
+$("#main-nav a").on('click', function (event) {
+  if (this.hash !== "") {
+    event.preventDefault();
+
+    const hash = this.hash;
+
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 800, function () {
+
+      window.location.hash = hash;
+    });
+  }
+});
+
     </script>
 </body>
 
